@@ -47,5 +47,6 @@ root
 - create lists with top movies 
 - create lists with new movies
 - pagination?
+- filter by several years (f.i. from 2000 to 2005)
 
 
