@@ -30,3 +30,22 @@ root
         └── resultView.js
         └── startView.js
 ```
+## The project features
+
+- search and display the list of films
+
+- favourite movies 
+
+## Must_haves 
+- search with name + filters (year, genre, type)
+- add video to favourites and remove from the list 
+- diplay pictures 
+- responsive design 
+- to store data somewhere (so favourites save after reloading the page)
+
+## Should_haves 
+- create lists with top movies 
+- create lists with new movies
+- pagination?
+
+
