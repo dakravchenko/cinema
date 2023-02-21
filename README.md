@@ -37,7 +37,7 @@ root
 - favourite movies 
 
 ## Must_haves 
-- search with name + filters (year, genre, type)
+- search by name + filters (year, genre, type)
 - add video to favourites and remove from the list 
 - diplay pictures 
 - responsive design 
