@@ -1,6 +1,7 @@
 import { MAIN_CONTENT_DIV } from "../constants.js";
 
 export function renderSearchResults(data){
+    MAIN_CONTENT_DIV.innerHTML = '' //dont know why for loop doesnt work
     for(const film of data.results){
         const div = document.createElement('div');
         div.className = 'grid-item'
