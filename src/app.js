@@ -1,3 +1,3 @@
-import {searchFilms} from '../src/pages/initPage.js'
+import {searchFilms, createStartingPage} from '../src/pages/initPage.js'
 
-window.addEventListener('load', searchFilms('avatar'))
+window.addEventListener('load', createStartingPage)
