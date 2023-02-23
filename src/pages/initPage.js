@@ -22,7 +22,15 @@ export async function createStartingPage(){
     const inputSearch = document.createElement('input');
     inputSearch.setAttribute('type', 'text')
     inputSearch.className = 'movie-search-input'
+    inputSearch.setAttribute('placeholder', 'Type to find...')
     divForInput.appendChild(inputSearch)
+    const buttonSearch = document.createElement('button')
+    buttonSearch.className = 'movie-search-button'
+    buttonSearch.setAttribute('type','button')
+    const buttonText = document.createElement('h2')
+    buttonText.textContent = 'search'
+    buttonSearch.appendChild(buttonText)
+    divForInput.appendChild(buttonSearch)
     MAIN_CONTENT_DIV.appendChild(upperHeading)
     MAIN_CONTENT_DIV.appendChild(lowerHeading)
     MAIN_CONTENT_DIV.appendChild(divForInput)

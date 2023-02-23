@@ -6,7 +6,7 @@ export function renderSearchResults(data){
         const div = document.createElement('div');
         div.className = 'grid-item'
         const img = document.createElement('img');
-        const imageUrl = `https://image.tmdb.org/t/p/w500/${film.backdrop_path}`
+        const imageUrl = `https://image.tmdb.org/t/p/w400/${film.backdrop_path}`
         img.src = imageUrl
         img.setAttribute('alt','poster')
         div.appendChild(img);

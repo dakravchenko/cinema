@@ -49,6 +49,9 @@ a {
     margin: 9px auto;
     background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%);
 }
+.main-content {
+    margin-top: 140px;
+}
 h1 {
     text-align: center;
     font-family: 'Epilogue';
@@ -67,23 +70,42 @@ h1 {
 
 .input-container {
     width: 30%;
-
     margin: 30px auto;
+    display: flex;
+
+
 }
 .movie-search-input {
     width: 100%;
     padding: 20px;
     margin: 8px 0;
-    border-radius: 50px; 
-  border: 10px solid transparent; 
-  background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%) border-box; /*3*/
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) padding-box, 
-     linear-gradient(#fff 0 0);
-     -webkit-mask-composite: xor;
-     mask-composite: exclude;
-   
+    border-width: thick; 
+    border-radius: 50px;
+    margin-right: 20px;
+
     
+    
+}
+input::placeholder {
+    font: 20px/3 sans-serif;
+    font-family: 'Inter';
+}
+.movie-search-button {
+    width: 30%;
+    padding: 20px;
+    margin: 8px 0;
+    border-width: thick; 
+    border-radius: 50px;
+    background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%);
+    border: none;
+    cursor: pointer;
+}
+.movie-search-button h2{
+    color: white;
+    font-family: 'Intel';
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 
@@ -115,8 +137,15 @@ h1 {
     .nav-menu.active {
         left: 0;
     }
+    .main-content {
+        margin-top: 0
+    }
     .input-container {
         width: 90%;
+        flex-direction: column;
     
+    }
+    .movie-search-button {
+        width: 100%;
     }
 }
