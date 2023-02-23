@@ -2,10 +2,17 @@ import { HEADER } from "../constants.js";
 import { renderSearchResults} from "../views/resultView.js"
 
 export async function createStartingPage(){
-    const input = document.createElement('input');
-    input.setAttribute('type', 'text')
-    input.className = 'movie-search-input'
-    HEADER.appendChild(input)
+
+    // const input = document.createElement('input');
+    // input.setAttribute('type', 'text')
+    // input.className = 'movie-search-input'
+    // HEADER.appendChild(input)
+    const logo = document.createElement('img');
+    logo.src = '\public\img\moviedb-logo.svg'
+    logo.setAttribute('alt', 'logo')
+    logo.className = 'logo'
+    HEADER.appendChild(logo)
+
 }
 
 export async function searchFilms(query){

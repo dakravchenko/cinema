@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
         }
         timeOutToken = setTimeout(() => {
             searchFilms(searchFieldElement.value)
-        }, 500)
+        }, 1000)
 
     })
 
