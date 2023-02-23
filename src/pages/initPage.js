@@ -17,12 +17,15 @@ export async function createStartingPage(){
     const lowerHeading = document.createElement('h1')
     lowerHeading.className = 'greeting-text'
     lowerHeading.textContent = 'Would you like to find a movie?'
-    const input = document.createElement('input');
-    input.setAttribute('type', 'text')
-    input.className = 'movie-search-input'
+    const divForInput = document.createElement('div');
+    divForInput.className = 'input-container'
+    const inputSearch = document.createElement('input');
+    inputSearch.setAttribute('type', 'text')
+    inputSearch.className = 'movie-search-input'
+    divForInput.appendChild(inputSearch)
     MAIN_CONTENT_DIV.appendChild(upperHeading)
     MAIN_CONTENT_DIV.appendChild(lowerHeading)
-    MAIN_CONTENT_DIV.appendChild(input)
+    MAIN_CONTENT_DIV.appendChild(divForInput)
 
 }
 

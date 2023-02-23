@@ -3,9 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    margin: 0 30px;
+}
 header {
-    height: 120px;
-    margin: 20px 30px 0px 30px
+    height: 150px;
+    margin-top: 20px
 }
 
 .logo {
@@ -44,11 +47,15 @@ a {
     width : 50px;
     height: 3px;
     margin: 9px auto;
-    background-color: black;
+    background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%);
 }
 h1 {
     text-align: center;
     font-family: 'Epilogue';
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 31px;
+    text-transform: uppercase;
 }
 .greeting-text {
     background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%);
@@ -57,6 +64,28 @@ h1 {
     background-clip: text;
 
 }
+
+.input-container {
+    width: 30%;
+
+    margin: 30px auto;
+}
+.movie-search-input {
+    width: 100%;
+    padding: 20px;
+    margin: 8px 0;
+    border-radius: 50px; 
+  border: 10px solid transparent; 
+  background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%) border-box; /*3*/
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+     -webkit-mask-composite: xor;
+     mask-composite: exclude;
+   
+    
+}
+
 
 @media(max-width:768px){
     .hamburger{
@@ -67,9 +96,11 @@ h1 {
     }
     .hamburger.active .bar:nth-child(1){
         transform: translateY(11px) rotate(45deg);
+        transition: 0.5s;
     }
     .hamburger.active .bar:nth-child(3){
         transform: translateY(-11px) rotate(-45deg);
+        transition: 0.5s;
     }
     .nav-menu {
         position: fixed;
@@ -83,5 +114,9 @@ h1 {
     }
     .nav-menu.active {
         left: 0;
+    }
+    .input-container {
+        width: 90%;
+    
     }
 }
