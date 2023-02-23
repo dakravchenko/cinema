@@ -1,17 +1,28 @@
-import { HEADER } from "../constants.js";
+import { HEADER, MAIN_CONTENT_DIV } from "../constants.js";
 import { renderSearchResults} from "../views/resultView.js"
 
 export async function createStartingPage(){
 
-    // const input = document.createElement('input');
-    // input.setAttribute('type', 'text')
-    // input.className = 'movie-search-input'
-    // HEADER.appendChild(input)
+    const divForLogo = document.querySelector('.nav-logo')
     const logo = document.createElement('img');
-    logo.src = '\public\img\moviedb-logo.svg'
+    logo.src = "./public/img/moviedb-logo.svg"
     logo.setAttribute('alt', 'logo')
     logo.className = 'logo'
-    HEADER.appendChild(logo)
+    divForLogo.appendChild(logo)
+
+
+    const upperHeading = document.createElement('h1')
+    upperHeading.className = 'greeting-text'
+    upperHeading.textContent = 'Hello THERE!' 
+    const lowerHeading = document.createElement('h1')
+    lowerHeading.className = 'greeting-text'
+    lowerHeading.textContent = 'Would you like to find a movie?'
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text')
+    input.className = 'movie-search-input'
+    MAIN_CONTENT_DIV.appendChild(upperHeading)
+    MAIN_CONTENT_DIV.appendChild(lowerHeading)
+    MAIN_CONTENT_DIV.appendChild(input)
 
 }
 
