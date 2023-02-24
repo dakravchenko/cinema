@@ -1,11 +1,40 @@
-import { HEADER } from "../constants.js";
+import { HEADER, MAIN_CONTENT_DIV } from "../constants.js";
 import { renderSearchResults} from "../views/resultView.js"
 
 export async function createStartingPage(){
-    const input = document.createElement('input');
-    input.setAttribute('type', 'text')
-    input.className = 'movie-search-input'
-    HEADER.appendChild(input)
+
+    const divForLogo = document.querySelector('.nav-logo')
+    const logo = document.createElement('img');
+    logo.src = "./public/img/moviedb-logo.svg"
+    logo.setAttribute('alt', 'logo')
+    logo.className = 'logo'
+    divForLogo.appendChild(logo)
+
+
+    const upperHeading = document.createElement('h1')
+    upperHeading.className = 'greeting-text'
+    upperHeading.textContent = 'Hello THERE!' 
+    const lowerHeading = document.createElement('h1')
+    lowerHeading.className = 'greeting-text'
+    lowerHeading.textContent = 'Would you like to find a movie?'
+    const divForInput = document.createElement('div');
+    divForInput.className = 'input-container'
+    const inputSearch = document.createElement('input');
+    inputSearch.setAttribute('type', 'text')
+    inputSearch.className = 'movie-search-input'
+    inputSearch.setAttribute('placeholder', 'Type to find...')
+    divForInput.appendChild(inputSearch)
+    const buttonSearch = document.createElement('button')
+    buttonSearch.className = 'movie-search-button'
+    buttonSearch.setAttribute('type','button')
+    const buttonText = document.createElement('h2')
+    buttonText.textContent = 'search'
+    buttonSearch.appendChild(buttonText)
+    divForInput.appendChild(buttonSearch)
+    MAIN_CONTENT_DIV.appendChild(upperHeading)
+    MAIN_CONTENT_DIV.appendChild(lowerHeading)
+    MAIN_CONTENT_DIV.appendChild(divForInput)
+
 }
 
 export async function searchFilms(query){
