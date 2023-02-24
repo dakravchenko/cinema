@@ -108,11 +108,21 @@ input::placeholder {
 .main-content{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    column-gap: 7%;
+    row-gap: 35px;
+    justify-items: center;
 }
 
-
-
+@media(max-width:1285px){
+    .main-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width:900px){
+    .main-content{
+        grid-template-columns: 1fr;
+    }
+}
 @media(max-width:768px){
     .hamburger{
         display: block;
@@ -152,4 +162,10 @@ input::placeholder {
     .movie-search-button {
         width: 100%;
     }
+}
+@media(max-width:460px){
+    .poster{
+        width: 95%;
+    }
+    
 }

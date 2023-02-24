@@ -27,12 +27,13 @@ export function renderSearchResults(data){
         const movieCard = document.createElement('div');
         movieCard.className = 'grid-item'
         const poster = document.createElement('img');
+        poster.className = 'poster'
         const imageUrl = `https://image.tmdb.org/t/p/w400/${film.backdrop_path}`
         poster.src = imageUrl
         poster.setAttribute('alt','poster')
         movieCard.appendChild(poster);
         const filmTitleAndRating = document.createElement('h2')
-        filmTitleAndRating.textContent = `${film.original_title}    ${film.vote_average}`
+        filmTitleAndRating.textContent = `${film.original_title}                    ${film.vote_average}`
         movieCard.appendChild(filmTitleAndRating);
         const filmOverview = document.createElement('h3')
         filmOverview.textContent = film.overview
