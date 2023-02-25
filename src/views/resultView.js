@@ -15,6 +15,7 @@ export async function displayFilterMenu(){
 
     const genresSelector = document.createElement('select');
     genresSelector.setAttribute('name','genre')
+    genresSelector.className = 'genres-selector'
     const option = document.createElement('option')
     option.textContent = 'All genres'
     option.setAttribute('value','All genres')
@@ -23,7 +24,7 @@ export async function displayFilterMenu(){
     const possibleGenres = await getGenres()
     for(let genre of possibleGenres.genres){
         const option = document.createElement('option')
-        option.setAttribute('value',genre.name)
+        option.setAttribute('value',genre.id)
         option.setAttribute('data-id',genre.id)
         option.textContent = genre.name
         genresSelector.appendChild(option)
@@ -55,11 +56,12 @@ export async function renderSearchResults(data){
             }, 1000)
 
         })
-
-        const genresSelector = document.createElement('select');
+        const yearInput = document.querySelector('.search-year')
+        const genresSelector = document.querySelector('.genres-selector');
         genresSelector.addEventListener('change', () => {
-            filterGenreAndYear(data, genresSelector.value, )
+            filterGenreAndYear(data, genresSelector.value, yearInput.value)
           });
+          
         for(const film of data.results){
             const movieCard = document.createElement('div');
             movieCard.className = 'grid-item'
@@ -112,4 +114,9 @@ export async function renderSearchResults(data){
 
 
         }
+    }
+    export function renderFilterResults(data){
+        MAIN_CONTENT_DIV.innerHTML = ''
+        console.log(data)
+
     }
