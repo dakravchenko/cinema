@@ -20,7 +20,7 @@ export async function createStartingPage(){
     DIV_FOR_INPUT.appendChild(LOWER_HEADING)
    
     SEARCH_INPUT.setAttribute('type', 'text')
-    SEARCH_INPUT.className = 'movie-search-input'
+    SEARCH_INPUT.className = 'input-init-page'
     SEARCH_INPUT.setAttribute('placeholder', 'Type to find...')
 
 

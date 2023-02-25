@@ -73,7 +73,7 @@ h1 {
 
 
 }
-.movie-search-input {
+.input-init-page, .input-results {
     width: 100%;
     padding: 20px;
     margin: 8px 0;
@@ -85,7 +85,11 @@ h1 {
     
 }
 input::placeholder {
-    font: 20px/3 sans-serif;
+    font-size: 20px;
+    font-family: 'Inter';
+}
+input {
+    font-size: 20px;
     font-family: 'Inter';
 }
 .movie-search-button {
@@ -111,6 +115,10 @@ input::placeholder {
     column-gap: 7%;
     row-gap: 35px;
     justify-items: center;
+}
+.poster {
+    width: 400px;
+    height: 225px;
 }
 
 @media(max-width:1285px){
