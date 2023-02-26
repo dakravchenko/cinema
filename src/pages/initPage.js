@@ -1,6 +1,6 @@
 import { MAIN_CONTENT_DIV, SECTION, UPPER_HEADING, LOWER_HEADING, DIV_FOR_INPUT, SEARCH_BUTTON, SEARCH_INPUT } from "../constants.js";
 import { renderSearchResults} from "../views/resultView.js"
-
+import { renderError } from "../views/errorView.js";
 export async function createStartingPage(){
 
     const divForLogo = document.querySelector('.nav-logo')
@@ -8,7 +8,7 @@ export async function createStartingPage(){
     logo.src = "./public/img/moviedb-logo.svg"
     logo.setAttribute('alt', 'logo')
     logo.className = 'logo'
-    divForLogo.appendChild(logo)
+    divForLogo.appendChild(logo)   // het rid of icon and put into HTML
 
     UPPER_HEADING.className = 'greeting-text greeting-text-1'
     UPPER_HEADING.textContent = 'Hello THERE!' 
@@ -46,4 +46,15 @@ export async function searchFilms(query){
     console.log(jsonData) //to be deleted
     renderSearchResults(jsonData)
 
+}
+
+export async function getData(year, genre, vote, keyword){
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=464e0732a4ff7c3b5e09de7baa51e9f2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${year}&vote_average.gte=${vote}&with_genres=${genre}&with_keywords=${keyword}&with_watch_monetization_types=flatrate`
+    const res = await fetch(url)
+    if(!res.ok){
+        const error = `${res.status} : ${res.statusText}`
+        renderError(error)
+    }
+    const jsonData = await res.json();
+    return jsonData
 }

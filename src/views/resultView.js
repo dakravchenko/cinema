@@ -1,5 +1,5 @@
 import { SECTION, DIV_FOR_INPUT, LOWER_HEADING, MAIN_CONTENT_DIV, SEARCH_BUTTON, UPPER_HEADING, SEARCH_INPUT } from "../constants.js";
-import { getGenres, filterGenreAndYear } from "../pages/filters.js";
+import { getGenres } from "../pages/filters.js";
 import { searchFilms } from "../pages/initPage.js";
 
 export async function displayFilterMenu(){
@@ -56,11 +56,11 @@ export async function renderSearchResults(data){
             }, 1000)
 
         })
-        const yearInput = document.querySelector('.search-year')
-        const genresSelector = document.querySelector('.genres-selector');
-        genresSelector.addEventListener('change', () => {
-            filterGenreAndYear(data, genresSelector.value, yearInput.value)
-          });
+        // const yearInput = document.querySelector('.search-year')
+        // const genresSelector = document.querySelector('.genres-selector');
+        // genresSelector.addEventListener('change', () => {
+        //     filterGenreAndYear(data, genresSelector.value, yearInput.value)
+        //   });
           
         for(const film of data.results){
             const movieCard = document.createElement('div');
@@ -115,8 +115,8 @@ export async function renderSearchResults(data){
 
         }
     }
-    export function renderFilterResults(data){
-        MAIN_CONTENT_DIV.innerHTML = ''
-        console.log(data)
+    // export function renderFilterResults(data){
+    //     MAIN_CONTENT_DIV.innerHTML = ''
+    //     console.log(data)
 
-    }
+    // }

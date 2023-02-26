@@ -1,6 +1,7 @@
 import {searchFilms, createStartingPage} from '../src/pages/initPage.js'
 import {displayFilterMenu} from './views/resultView.js'
-import { SEARCH_INPUT, SEARCH_BUTTON} from './constants.js';
+import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE} from './constants.js';
+import { createDiscoverPage } from './pages/discoverPage.js';
 
 window.addEventListener('load', () => {
     createStartingPage();
@@ -23,6 +24,8 @@ window.addEventListener('load', () => {
        
       }
     })
+    DISCOVER_PAGE.addEventListener('click', createDiscoverPage)
+
 
 
     const hamburger = document.querySelector(".hamburger");
