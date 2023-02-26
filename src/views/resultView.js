@@ -1,38 +1,8 @@
-import { SECTION, DIV_FOR_INPUT, LOWER_HEADING, MAIN_CONTENT_DIV, SEARCH_BUTTON, UPPER_HEADING, SEARCH_INPUT } from "../constants.js";
+import { SECTION, DIV_FOR_INPUT, LOWER_HEADING, MAIN_CONTENT_DIV, SEARCH_BUTTON, UPPER_HEADING, SEARCH_INPUT, DISCOVER_FILTERS} from "../constants.js";
 import { getGenres } from "../pages/filters.js";
 import { searchFilms } from "../pages/initPage.js";
 
-export async function displayFilterMenu(){
-    const divForFilters = document.createElement('div');
-    divForFilters.className = 'filters-container';
-    const yearInput = document.createElement('input')
-    yearInput.className = 'search-year'
-    yearInput.setAttribute('type','number')
-    yearInput.setAttribute('min','1930')
-    yearInput.setAttribute('max','2023')
-    yearInput.setAttribute('placeholder','year')
-    divForFilters.appendChild(yearInput);
 
-    const genresSelector = document.createElement('select');
-    genresSelector.setAttribute('name','genre')
-    genresSelector.className = 'genres-selector'
-    const option = document.createElement('option')
-    option.textContent = 'All genres'
-    option.setAttribute('value','All genres')
-    genresSelector.appendChild(option)
-
-    const possibleGenres = await getGenres()
-    for(let genre of possibleGenres.genres){
-        const option = document.createElement('option')
-        option.setAttribute('value',genre.id)
-        option.setAttribute('data-id',genre.id)
-        option.textContent = genre.name
-        genresSelector.appendChild(option)
-    }
-    divForFilters.appendChild(genresSelector);
-    SECTION.insertBefore(divForFilters, MAIN_CONTENT_DIV)
-    
-}
 export async function renderSearchResults(data){
 
     if(DIV_FOR_INPUT.children.length > 1){
@@ -40,6 +10,7 @@ export async function renderSearchResults(data){
         DIV_FOR_INPUT.removeChild(LOWER_HEADING)
         DIV_FOR_INPUT.removeChild(SEARCH_BUTTON)
     }
+    DISCOVER_FILTERS.innerHTML = ';'
     
     MAIN_CONTENT_DIV.innerHTML = ''; //dont know why for loop doesnt work
 

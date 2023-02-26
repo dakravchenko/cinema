@@ -1,16 +1,19 @@
-import { MAIN_CONTENT_DIV, SECTION } from "../constants.js";
+import { MAIN_CONTENT_DIV, SECTION, DISCOVER_FILTERS, DIV_FOR_INPUT } from "../constants.js";
+import { renderError } from "../views/errorView.js";
 import { renderSearchResults } from "../views/resultView.js";
 import { getGenres } from "./filters.js";
 import { getData } from "./initPage.js";
 
 export async function createDiscoverPage(){
-    MAIN_CONTENT_DIV.innerHTML = '';
+    MAIN_CONTENT_DIV.innerHTML = ''
+    DISCOVER_FILTERS.innerHTML = ''
+    DIV_FOR_INPUT.innerHTML = '' //maybe I should create a function to clean the content??
 
-    const discoverFilters = document.createElement('div')
-    discoverFilters.className = 'discover-filters grid-container'
+
+    DISCOVER_FILTERS.className = 'discover-filters grid-container'
 
     const yearFilter = document.createElement('div')
-    yearFilter.className = 'grid-item'
+    yearFilter.className = 'grid-item'  //i dont use this class currently? delete?
     const genresFilter = document.createElement('div')
     genresFilter.className = 'grid-item'
     const voteFilter = document.createElement('div')
@@ -46,30 +49,38 @@ export async function createDiscoverPage(){
     voteFilter.appendChild(voteFilterField)
     keywordFilter.appendChild(keywordFilterField)
 
-    discoverFilters.appendChild(yearFilter)
-    discoverFilters.appendChild(genresFilter)
-    discoverFilters.appendChild(voteFilter)
-    discoverFilters.appendChild(keywordFilter)
-
-    SECTION.insertBefore(discoverFilters, MAIN_CONTENT_DIV)
+    DISCOVER_FILTERS.appendChild(yearFilter)
+    DISCOVER_FILTERS.appendChild(keywordFilter)
+    DISCOVER_FILTERS.appendChild(voteFilter)
+    DISCOVER_FILTERS.appendChild(genresFilter)
 
     const applyButton = document.createElement('button');
-    const applyButtonText = document.createElement('h3');
+    applyButton.className = 'apply-button'
+    const applyButtonText = document.createElement('h2');
     applyButtonText.textContent = 'apply'
     applyButton.appendChild(applyButtonText)
     applyButton.setAttribute('type','button')
+    DISCOVER_FILTERS.appendChild(applyButton)
+
+    SECTION.insertBefore(DISCOVER_FILTERS, MAIN_CONTENT_DIV)
+
+    
 
 
-
-    SECTION.insertBefore(applyButton, MAIN_CONTENT_DIV)
+    
 
     applyButton.addEventListener('click', async () => {
-        const year = yearFilterField.value || ''
-        const genre = genresFilterField.value || ''
-        const vote = voteFilterField.value || ''
-        const keyword = keywordFilterField.value || ''
-        const data = await getData(year, genre, vote, keyword)
+        const year = yearFilterField.value
+        const genre = genresFilterField.value
+        const vote = voteFilterField.value
+        const keyword = keywordFilterField.value
+        try {
+            const data = await getData(year, genre, vote, keyword)
         renderSearchResults(data)
+
+        } catch (error) {
+            renderError(error)
+        }
 
     })
 

@@ -1,6 +1,5 @@
 import {searchFilms, createStartingPage} from '../src/pages/initPage.js'
-import {displayFilterMenu} from './views/resultView.js'
-import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE} from './constants.js';
+import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE} from './constants.js';
 import { createDiscoverPage } from './pages/discoverPage.js';
 
 window.addEventListener('load', () => {
@@ -12,7 +11,6 @@ window.addEventListener('load', () => {
       }
       SEARCH_INPUT.classList.remove('input-init-page')
       SEARCH_INPUT.classList.add('input-results')
-      displayFilterMenu()
       searchFilms(SEARCH_INPUT.value)
      
     })
@@ -24,7 +22,10 @@ window.addEventListener('load', () => {
        
       }
     })
+
     DISCOVER_PAGE.addEventListener('click', createDiscoverPage)
+    HOME_PAGE.addEventListener('click', createStartingPage)
+
 
 
 
