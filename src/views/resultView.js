@@ -5,14 +5,12 @@ import { searchFilms } from "../pages/initPage.js";
 
 export async function renderSearchResults(data){
 
-    if(DIV_FOR_INPUT.children.length > 1){
-        DIV_FOR_INPUT.removeChild(UPPER_HEADING)
-        DIV_FOR_INPUT.removeChild(LOWER_HEADING)
-        DIV_FOR_INPUT.removeChild(SEARCH_BUTTON)
-    }
-    DISCOVER_FILTERS.innerHTML = ';'
-    
-    MAIN_CONTENT_DIV.innerHTML = ''; //dont know why for loop doesnt work
+    SECTION.innerHTML = ''
+    MAIN_CONTENT_DIV.innerHTML = ''
+    DIV_FOR_INPUT.innerHTML = ''
+
+    DIV_FOR_INPUT.appendChild(SEARCH_INPUT)
+    SECTION.insertBefore(DIV_FOR_INPUT, null)
 
         let timeOutToken = 0;
         SEARCH_INPUT.addEventListener('keyup', () => {
@@ -27,15 +25,10 @@ export async function renderSearchResults(data){
             }, 1000)
 
         })
-        // const yearInput = document.querySelector('.search-year')
-        // const genresSelector = document.querySelector('.genres-selector');
-        // genresSelector.addEventListener('change', () => {
-        //     filterGenreAndYear(data, genresSelector.value, yearInput.value)
-        //   });
           
         for(const film of data.results){
             const movieCard = document.createElement('div');
-            movieCard.className = 'grid-item'
+            movieCard.className = 'film-container'
             movieCard.setAttribute('genres',JSON.stringify(film.genre_ids)) //dont need this attribute
             const poster = document.createElement('img');
             poster.className = 'poster'
@@ -56,38 +49,12 @@ export async function renderSearchResults(data){
             filmOverview.textContent = film.overview
             movieCard.appendChild(filmOverview);
 
-            // const favoritesIcon = document.createElement('img');
-
-            // favoritesIcon.setAttribute('data-info',JSON.stringify(film))
-            // favoritesIcon.setAttribute('alt','star icon');
-            // favoritesIcon.className = 'video-like'
-            // if(favoritesIcon.className === 'clicked'){
-            //     favoritesIcon.src = "./public/img/star-selected.png"
-            // } else {
-            //     favoritesIcon.src = "./public/img/star.png"
-            // }
-            // movieCard.appendChild(favoritesIcon)
-
             MAIN_CONTENT_DIV.appendChild(movieCard);
+            SECTION.appendChild(MAIN_CONTENT_DIV)
 
-            // favoritesIcon.addEventListener('click', () => 
-            // {
-            //     if(favoritesIcon.className === 'clicked'){
-            //         favoritesIcon.classList.remove('clicked') 
-            //     } else {
-            //         favoritesIcon.classList.add('clicked')
-            //     }
-            //     renderSearchResults(data) // need local storage
-            // })
-            // // favoritesIcon.addEventListener('click', addFavorite)
 
 
 
 
         }
     }
-    // export function renderFilterResults(data){
-    //     MAIN_CONTENT_DIV.innerHTML = ''
-    //     console.log(data)
-
-    // }

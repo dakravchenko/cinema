@@ -1,5 +1,5 @@
 import {searchFilms, createStartingPage} from '../src/pages/initPage.js'
-import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE} from './constants.js';
+import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE, SECTION} from './constants.js';
 import { createDiscoverPage } from './pages/discoverPage.js';
 
 window.addEventListener('load', () => {
@@ -23,7 +23,11 @@ window.addEventListener('load', () => {
       }
     })
 
-    DISCOVER_PAGE.addEventListener('click', createDiscoverPage)
+    DISCOVER_PAGE.addEventListener('click', () => {
+      SECTION.innerHTML = ''
+      createDiscoverPage();
+    }
+    )
     HOME_PAGE.addEventListener('click', createStartingPage)
 
 

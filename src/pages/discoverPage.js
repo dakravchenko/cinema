@@ -5,10 +5,8 @@ import { getGenres } from "./filters.js";
 import { getData } from "./initPage.js";
 
 export async function createDiscoverPage(){
-    MAIN_CONTENT_DIV.innerHTML = ''
-    DISCOVER_FILTERS.innerHTML = ''
-    DIV_FOR_INPUT.innerHTML = '' //maybe I should create a function to clean the content??
 
+    DISCOVER_FILTERS.innerHTML = ''
 
     DISCOVER_FILTERS.className = 'discover-filters grid-container'
 
@@ -62,7 +60,7 @@ export async function createDiscoverPage(){
     applyButton.setAttribute('type','button')
     DISCOVER_FILTERS.appendChild(applyButton)
 
-    SECTION.insertBefore(DISCOVER_FILTERS, MAIN_CONTENT_DIV)
+    SECTION.appendChild(DISCOVER_FILTERS)
 
     
 

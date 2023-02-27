@@ -136,11 +136,16 @@ button h2{
 }
 
 .main-content{
+    margin: 0 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 7%;
     row-gap: 35px;
     justify-items: center;
+}
+.film-container {
+    width: 400px;
+    max-height: 400px;
 }
 .poster {
     width: 400px;

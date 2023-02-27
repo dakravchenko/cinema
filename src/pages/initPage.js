@@ -2,7 +2,7 @@ import { MAIN_CONTENT_DIV, SECTION, UPPER_HEADING, LOWER_HEADING, DIV_FOR_INPUT,
 import { renderSearchResults} from "../views/resultView.js"
 import { renderError } from "../views/errorView.js";
 export async function createStartingPage(){
-    // also bug with deleting discover elements need to be fixed
+    SECTION.innerHTML = ''
     SEARCH_BUTTON.innerHTML = '' // this bug should be fixed another way. need to think later
 
     UPPER_HEADING.className = 'greeting-text greeting-text-1'
@@ -26,7 +26,7 @@ export async function createStartingPage(){
     SEARCH_BUTTON.appendChild(buttonText)
     DIV_FOR_INPUT.appendChild(SEARCH_INPUT)
     DIV_FOR_INPUT.appendChild(SEARCH_BUTTON)
-    SECTION.insertBefore(DIV_FOR_INPUT, MAIN_CONTENT_DIV)
+    SECTION.appendChild(DIV_FOR_INPUT)
 
 }
 
