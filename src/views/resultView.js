@@ -11,6 +11,7 @@ export async function renderSearchResults(data){
     DIV_FOR_INPUT.appendChild(SEARCH_INPUT)
     SECTION.insertBefore(DIV_FOR_INPUT, null)
 
+
         let timeOutToken = 0;
         SEARCH_INPUT.addEventListener('keyup', () => {
             clearTimeout(timeOutToken)
@@ -24,7 +25,12 @@ export async function renderSearchResults(data){
             }, 1000)
 
         })
-          
+        if(data.results.length === 0){
+            const errorText = document.createElement('h2')
+            errorText.textContent = 'Ooops. We recommend you to check the filters or enter another movie title...'
+            errorText.className = 'search-error'
+            SECTION.appendChild(errorText)
+        }  
         for(const film of data.results){
             const movieCard = document.createElement('div');
             movieCard.className = 'film-container'
