@@ -36,14 +36,13 @@ export async function renderSearchResults(data){
             if(film.backdrop_path === null){
                 imageUrl = "./public/img/no-poster.png"
             } else {
-                imageUrl = `https://image.tmdb.org/t/p/w400/${film.backdrop_path}`
+                imageUrl = `https://image.tmdb.org/t/p/w500/${film.backdrop_path}`
             }
             poster.src = imageUrl
             poster.setAttribute('alt','poster')
             movieCard.appendChild(poster);
             const filmTitleAndRating = document.createElement('h2')
-            filmTitleAndRating.className = 'film-name-and-rating'
-
+            
             const releaseDate = new Date(film.release_date)
             const releaseYear = releaseDate.getFullYear(film.release_date)
 

@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    margin: 0px;
-}
+
 header {
     height: 100px;
     margin-top: 20px;
@@ -40,7 +38,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px
+    gap: 60px;
 }
 
 .hamburger {
@@ -57,7 +55,7 @@ a {
     background: linear-gradient(270deg, #90CEA1 0%, #01B4E4 100%);
 }
 section {
-    margin-top: 100px;
+    margin-top: 40px;
 }
 h1 {
     text-align: center;
@@ -72,9 +70,10 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
 }
-
+.greeting-text-2 {
+    margin-bottom: 30px;
+}
 .input-container {
     width: 30%;
     margin: 30px auto;
@@ -137,7 +136,7 @@ button h2{
 }
 
 .main-content{
-    margin: 0 30px;
+    margin: 60px 5%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 7%;
@@ -145,13 +144,14 @@ button h2{
     justify-items: center;
 }
 .film-container {
-    width: 400px;
+    width: 500px;
 
 }
 .poster {
-    width: 400px;
-    height: 225px;
+    width: 500px;
+    height: 281px;
 }
+
 .film-container h2 {
     color: #505050;
     font-size: 25px;
@@ -164,6 +164,8 @@ button h2{
     font-size: 15px;
     font-weight: 400;
     font-family: 'Epilogue';
+    line-height: 1.4;
+    
 }
 .discover-filters {
     margin: 0 auto;
@@ -184,6 +186,19 @@ select, option {
 
 }
 
+@media(max-width:1400px){
+    .main-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .film-container {
+        width: 400px;
+    
+    }
+    .poster {
+        width: 400px;
+        height: 225px;
+    }
+}
 @media(max-width:1285px){
     .main-content{
         grid-template-columns: repeat(2, 1fr);
@@ -216,14 +231,26 @@ select, option {
         transition: 0.5s;
     }
     .nav-menu {
+        min-height: 100vh;
         position: fixed;
         left: -100%;
-        top: 90px;
+        top: 80px;
         gap: 0;
         flex-direction: column;
+        justify-content: flex-start;
         width: 100%;
-        text-align: center;
+        text-align:center;
         transition: 0.5s;
+    }
+    
+    .nav-item {
+        margin-top: 30px;   
+    }
+    .nav-item-first {
+        margin-top: 50px;
+    }
+    .nav-link {
+        font-size: 30px;
     }
     .nav-menu.active {
         left: 0;
@@ -232,6 +259,7 @@ select, option {
     a {
         color: white;
         font-size: 24px;
+        text-transform: uppercase;
     
     }
     .main-content {
@@ -247,11 +275,21 @@ select, option {
     }
 }
 @media(max-width:460px){
+    .main-content {
+        margin-left: 10px;
+        justify-items:flex-start
+    }
     .film-container{
-        width: 80%;
+        width: 97%;
     }
     .poster {
-        width: 360px;
-        height: 202px;
+        width: 100%
+    }
+
+}
+@media(max-width:400px){
+    .poster {
+        width: 300px;
+        height: 168px;
     }
 }
