@@ -1,12 +1,12 @@
-import { MAIN_CONTENT_DIV, SECTION, DISCOVER_FILTERS, DIV_FOR_INPUT } from "../constants.js";
+import { SECTION, DISCOVER_FILTERS} from "../constants.js";
 import { renderError } from "../views/errorView.js";
 import { renderSearchResults } from "../views/resultView.js";
-import { getGenres } from "./filters.js";
-import { getFilmsWithFilters } from "./initPage.js";
+import { getFilmsWithFilters, getGenres } from "../data.js";
 
 export async function createDiscoverPage(){
 
     DISCOVER_FILTERS.innerHTML = ''
+    SECTION.innerHTML = ''
 
     DISCOVER_FILTERS.className = 'discover-filters grid-container'
 
@@ -17,6 +17,11 @@ export async function createDiscoverPage(){
 
     const yearFilterField = document.createElement('input')
     yearFilterField.setAttribute('placeholder', 'Year')
+    yearFilterField.setAttribute('type','number')
+    yearFilterField.setAttribute('min', '1900')
+    yearFilterField.setAttribute('max','2026')
+    yearFilterField.setAttribute('step', '1')
+
 
     const genresFilterField = document.createElement('select')
     const firstOption = document.createElement('option')
@@ -37,6 +42,10 @@ export async function createDiscoverPage(){
 
     const voteFilterField = document.createElement('input')
     voteFilterField.setAttribute('placeholder', 'Average vote')
+    voteFilterField.setAttribute('type','number')
+    voteFilterField.setAttribute('min', '0')
+    voteFilterField.setAttribute('max','10')
+    voteFilterField.setAttribute('step', '1')
 
     const keywordFilterField = document.createElement('input')
     keywordFilterField.setAttribute('placeholder', 'Key word')

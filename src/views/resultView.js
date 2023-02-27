@@ -1,5 +1,5 @@
 import { SECTION, DIV_FOR_INPUT,MAIN_CONTENT_DIV, SEARCH_INPUT} from "../constants.js";
-import { getFilmsByName} from "../pages/initPage.js";
+import {getFilmsByName } from "../data.js";
 
 
 export async function renderSearchResults(data){

@@ -1,5 +1,6 @@
-import {getFilmsByName, createStartingPage} from '../src/pages/initPage.js'
-import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE, SECTION} from './constants.js';
+import { getFilmsByName } from './data.js';
+import { createStartingPage } from './pages/initPage.js';
+import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE} from './constants.js';
 import { createDiscoverPage } from './pages/discoverPage.js';
 
 window.addEventListener('load', () => {
@@ -24,7 +25,6 @@ window.addEventListener('load', () => {
     })
 
     DISCOVER_PAGE.addEventListener('click', () => {
-      SECTION.innerHTML = ''
       createDiscoverPage();
     }
     )
@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
       navMenu.classList.toggle("active");
     })
     
-    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    document.querySelectorAll(".nav-link").forEach(link => link.addEventListener("click", () => {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
     }))
