@@ -32,6 +32,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 100px;
 
 }
 .nav-menu {
@@ -237,6 +238,9 @@ select, option {
     .hamburger.active .bar:nth-child(3){
         transform: translateY(-11px) rotate(-45deg);
         transition: 0.5s;
+    }
+    .navbar {
+        margin-right: 0;
     }
     .nav-menu {
         min-height: 100vh;
