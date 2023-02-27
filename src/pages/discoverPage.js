@@ -2,7 +2,7 @@ import { MAIN_CONTENT_DIV, SECTION, DISCOVER_FILTERS, DIV_FOR_INPUT } from "../c
 import { renderError } from "../views/errorView.js";
 import { renderSearchResults } from "../views/resultView.js";
 import { getGenres } from "./filters.js";
-import { getData } from "./initPage.js";
+import { getFilmsWithFilters } from "./initPage.js";
 
 export async function createDiscoverPage(){
 
@@ -11,13 +11,9 @@ export async function createDiscoverPage(){
     DISCOVER_FILTERS.className = 'discover-filters grid-container'
 
     const yearFilter = document.createElement('div')
-    yearFilter.className = 'grid-item'  //i dont use this class currently? delete?
     const genresFilter = document.createElement('div')
-    genresFilter.className = 'grid-item'
     const voteFilter = document.createElement('div')
-    voteFilter.className = 'grid-item'
     const keywordFilter = document.createElement('div')
-    keywordFilter.className = 'grid-item'
 
     const yearFilterField = document.createElement('input')
     yearFilterField.setAttribute('placeholder', 'Year')
@@ -27,8 +23,11 @@ export async function createDiscoverPage(){
     firstOption.setAttribute('value', null)
     firstOption.textContent = 'All genres'
     genresFilterField.appendChild(firstOption)
-    const possibleGenres = await getGenres()
-    for(let genre of possibleGenres.genres){
+    
+    try {
+        const possibleGenres = await getGenres()
+
+        for(let genre of possibleGenres.genres){
         const option = document.createElement('option')
         option.setAttribute('value',genre.id)
         option.textContent = genre.name
@@ -62,18 +61,13 @@ export async function createDiscoverPage(){
 
     SECTION.appendChild(DISCOVER_FILTERS)
 
-    
-
-
-    
-
     applyButton.addEventListener('click', async () => {
         const year = yearFilterField.value
         const genre = genresFilterField.value
         const vote = voteFilterField.value
         const keyword = keywordFilterField.value
         try {
-            const data = await getData(year, genre, vote, keyword)
+            const data = await getFilmsWithFilters(year, genre, vote, keyword)
         renderSearchResults(data)
 
         } catch (error) {
@@ -81,8 +75,8 @@ export async function createDiscoverPage(){
         }
 
     })
-
-
-
+    } catch (error) {
+        renderError(error)
+    }
 
 }

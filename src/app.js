@@ -1,4 +1,4 @@
-import {searchFilms, createStartingPage} from '../src/pages/initPage.js'
+import {getFilmsByName, createStartingPage} from '../src/pages/initPage.js'
 import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE, SECTION} from './constants.js';
 import { createDiscoverPage } from './pages/discoverPage.js';
 
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
       }
       SEARCH_INPUT.classList.remove('input-init-page')
       SEARCH_INPUT.classList.add('input-results')
-      searchFilms(SEARCH_INPUT.value)
+      getFilmsByName(SEARCH_INPUT.value)
      
     })
 

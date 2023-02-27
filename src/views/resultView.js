@@ -1,6 +1,5 @@
-import { SECTION, DIV_FOR_INPUT, LOWER_HEADING, MAIN_CONTENT_DIV, SEARCH_BUTTON, UPPER_HEADING, SEARCH_INPUT, DISCOVER_FILTERS} from "../constants.js";
-import { getGenres } from "../pages/filters.js";
-import { searchFilms } from "../pages/initPage.js";
+import { SECTION, DIV_FOR_INPUT,MAIN_CONTENT_DIV, SEARCH_INPUT} from "../constants.js";
+import { getFilmsByName} from "../pages/initPage.js";
 
 
 export async function renderSearchResults(data){
@@ -20,7 +19,7 @@ export async function renderSearchResults(data){
                 return;
             }
             timeOutToken = setTimeout(() => {
-                searchFilms(SEARCH_INPUT.value)
+                getFilmsByName(SEARCH_INPUT.value)
 
             }, 1000)
 
