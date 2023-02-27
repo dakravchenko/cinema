@@ -3,14 +3,12 @@ import {getFilmsByName } from "../data.js";
 
 
 export async function renderSearchResults(data){
-
     SECTION.innerHTML = ''
     MAIN_CONTENT_DIV.innerHTML = ''
     DIV_FOR_INPUT.innerHTML = ''
 
     DIV_FOR_INPUT.appendChild(SEARCH_INPUT)
     SECTION.insertBefore(DIV_FOR_INPUT, null)
-
 
         let timeOutToken = 0;
         SEARCH_INPUT.addEventListener('keyup', () => {

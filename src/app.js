@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
        
       }
     })
-
+    
     DISCOVER_PAGE.addEventListener('click', () => {
       createDiscoverPage();
     }
