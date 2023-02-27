@@ -30,6 +30,9 @@ window.addEventListener('load', () => {
     )
     HOME_PAGE.addEventListener('click', createStartingPage)
 
+    const logo = document.querySelector('.logo')
+    logo.addEventListener('click', createStartingPage)
+
 
 
 

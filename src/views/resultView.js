@@ -29,7 +29,6 @@ export async function renderSearchResults(data){
         for(const film of data.results){
             const movieCard = document.createElement('div');
             movieCard.className = 'film-container'
-            movieCard.setAttribute('genres',JSON.stringify(film.genre_ids)) //dont need this attribute
             const poster = document.createElement('img');
             poster.className = 'poster'
             let imageUrl;
@@ -43,10 +42,26 @@ export async function renderSearchResults(data){
             poster.setAttribute('alt','poster')
             movieCard.appendChild(poster);
             const filmTitleAndRating = document.createElement('h2')
-            filmTitleAndRating.textContent = `${film.original_title}${film.vote_average}`
+            filmTitleAndRating.className = 'film-name-and-rating'
+
+            const releaseDate = new Date(film.release_date)
+            const releaseYear = releaseDate.getFullYear(film.release_date)
+
+            let voteAverage
+            if(film.vote_average === 0){
+                voteAverage = ''
+            } else {
+                voteAverage = film.vote_average
+            }
+            filmTitleAndRating.textContent = `${film.original_title} (${releaseYear}) ${voteAverage}`
             movieCard.appendChild(filmTitleAndRating);
             const filmOverview = document.createElement('h3')
-            filmOverview.textContent = film.overview
+            if(film.overview === ''){
+                filmOverview.textContent = 'Oops no description yet. Perhaps this movie will be described soon'
+            } else {
+                filmOverview.textContent = film.overview
+
+            }
             movieCard.appendChild(filmOverview);
 
             MAIN_CONTENT_DIV.appendChild(movieCard);
