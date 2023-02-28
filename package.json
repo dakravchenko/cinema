@@ -1,14 +1,17 @@
 {
-    "name": "Cinema",
-    "version": "1.0.0",
-    "scripts": {
-      "prettier:write": "prettier --write .",
-      "prettier:check": "prettier --check ."
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/dakravchenko/cinema.git"
-    },
-    "author": "Jalal Habeeb",
-    "homepage": "https://github.com/dakravchenko/cinema"
+  "name": "Cinema",
+  "version": "1.0.0",
+  "scripts": {
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dakravchenko/cinema.git"
+  },
+  "author": "Daniil Kravchenko",
+  "homepage": "https://github.com/dakravchenko/cinema",
+  "devDependencies": {
+    "prettier": "2.8.4"
   }
+}
