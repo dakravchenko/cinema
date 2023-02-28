@@ -4,9 +4,8 @@
 
 ## Description
 
-In this project I'm using https://www.themoviedb.org/ to fetch diverce movies. Enjoy!
+In this project I'm using https://www.themoviedb.org/ to fetch diverse movies. Enjoy!
 
-[full description will be added later]
 
 ## The project structure
 
@@ -22,31 +21,28 @@ root
     └── index.html
     └── data.js
     └── pages
-        └── favouritesPage.js
+        └── discoverPage.js
         └── initPage.js
+        └── topMovies.js
     └── views
         └── errorView.js
-        └── favouriteView.js
         └── resultView.js
-        └── startView.js
 ```
 ## The project features
 
-- search and display the list of films
+- search and display the list of films using different queries
 
-- favourite movies 
 
 ## Must_haves 
+- fetched data
 - search by name + filters (year, genre, type)
-- add video to favourites and remove from the list 
 - diplay pictures 
 - responsive design 
-- to store data somewhere (so favourites save after reloading the page)
+- pagination
 
-## Should_haves 
+## nice to have
 - create lists with top movies 
-- create lists with new movies
-- pagination?
-- filter by several years (f.i. from 2000 to 2005)
+- create an app icon
+
 
 
