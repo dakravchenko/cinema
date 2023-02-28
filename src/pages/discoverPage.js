@@ -16,6 +16,7 @@ export async function createDiscoverPage(){
     const keywordFilter = document.createElement('div')
 
     const yearFilterField = document.createElement('input')
+    yearFilterField.className = 'filter'
     yearFilterField.setAttribute('placeholder', 'Year')
     yearFilterField.setAttribute('type','number')
     yearFilterField.setAttribute('min', '1900')
@@ -24,6 +25,7 @@ export async function createDiscoverPage(){
 
 
     const genresFilterField = document.createElement('select')
+    genresFilterField.className = 'filter'
     const firstOption = document.createElement('option')
     firstOption.setAttribute('value', null)
     firstOption.textContent = 'All genres'
@@ -41,6 +43,7 @@ export async function createDiscoverPage(){
 
 
     const voteFilterField = document.createElement('input')
+    voteFilterField.className = 'filter'
     voteFilterField.setAttribute('placeholder', 'Average vote')
     voteFilterField.setAttribute('type','number')
     voteFilterField.setAttribute('min', '0')
@@ -48,6 +51,7 @@ export async function createDiscoverPage(){
     voteFilterField.setAttribute('step', '1')
 
     const keywordFilterField = document.createElement('input')
+    keywordFilterField.className = 'filter'
     keywordFilterField.setAttribute('placeholder', 'Key word')
 
     yearFilter.appendChild(yearFilterField)
@@ -61,7 +65,7 @@ export async function createDiscoverPage(){
     DISCOVER_FILTERS.appendChild(genresFilter)
 
     const applyButton = document.createElement('button');
-    applyButton.className = 'apply-button'
+    applyButton.className = 'apply-button filter'
     const applyButtonText = document.createElement('h2');
     applyButtonText.textContent = 'apply'
     applyButton.appendChild(applyButtonText)

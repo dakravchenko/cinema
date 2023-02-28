@@ -111,6 +111,7 @@ input, select {
     width: 100%;
     padding: 15px;
     margin: 8px 0;
+    border: 2px solid #958d8d;
     border-width: thick; 
     border-radius: 50px;
     margin-right: 20px;   
@@ -124,13 +125,16 @@ input, select {
     margin-right: 20px;    
 }
 .filter-element {
-    width: 100%;
     padding: 20px;
     margin: 8px 0;
     border-width: thick; 
     border-radius: 50px;
     margin-right: 20px;
 }
+.filter {
+    width: 250px
+}
+
 input::placeholder {
     font-size: 20px;
     font-family: 'Inter';
@@ -149,12 +153,9 @@ button {
     border: none;
     cursor: pointer;
 }
-button.apply-button {
-    width: 60%;
-}
 button h2{
     color: white;
-    font-family: 'Intel';
+    font-family: 'Inter';
     font-size: 15px;
     font-weight: 400;
     text-transform: uppercase;
@@ -219,8 +220,7 @@ select, option {
     width: 110px;
     margin: 0 20px 20px 0;
 }
-
-@media(max-width:1400px){
+@media(max-width:1550px){
     .main-content{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -324,6 +324,9 @@ select, option {
     }
     .search-error{
         margin: 0 30px;
+    }
+    .filter {
+        width: 180px
     }
 
 }

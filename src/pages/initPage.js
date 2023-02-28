@@ -1,7 +1,7 @@
 import {SECTION, UPPER_HEADING, LOWER_HEADING, DIV_FOR_INPUT, SEARCH_BUTTON, SEARCH_INPUT } from "../constants.js";
 export async function createStartingPage(){
     SECTION.innerHTML = ''
-    SEARCH_BUTTON.innerHTML = '' // this bug should be fixed another way. need to think later
+    SEARCH_BUTTON.innerHTML = ''
 
     UPPER_HEADING.className = 'greeting-text greeting-text-1'
     UPPER_HEADING.textContent = 'Hello THERE!' 
