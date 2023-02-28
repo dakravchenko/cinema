@@ -1,5 +1,4 @@
 import { SECTION, DISCOVER_FILTERS} from "../constants.js";
-import { renderError } from "../views/errorView.js";
 import { renderSearchResults } from "../views/resultView.js";
 import { getFilmsWithFilters, getGenres } from "../data.js";
 
@@ -31,7 +30,6 @@ export async function createDiscoverPage(){
     firstOption.textContent = 'All genres'
     genresFilterField.appendChild(firstOption)
     
-    try {
         const possibleGenres = await getGenres()
 
         for(let genre of possibleGenres.genres){
@@ -79,17 +77,12 @@ export async function createDiscoverPage(){
         const genre = genresFilterField.value
         const vote = voteFilterField.value
         const keyword = keywordFilterField.value
-        try {
+        
             const data = await getFilmsWithFilters(year, genre, vote, keyword)
         renderSearchResults(data)
 
-        } catch (error) {
-            renderError(error)
-        }
+       
 
     })
-    } catch (error) {
-        renderError(error)
-    }
 
 }

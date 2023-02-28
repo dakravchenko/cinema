@@ -16,14 +16,6 @@ window.addEventListener('load', () => {
       getFilmsByName(SEARCH_INPUT.value)
      
     })
-
-    SEARCH_BUTTON.addEventListener('keypress', (e) => { ///doesnt work
-      if(e.key === 'enter'){
-        e.preventDefault();
-        SEARCH_BUTTON.click();
-       
-      }
-    })
     
     DISCOVER_PAGE.addEventListener('click', () => {
       createDiscoverPage();

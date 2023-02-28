@@ -1,5 +1,5 @@
 import {SECTION, UPPER_HEADING, LOWER_HEADING, DIV_FOR_INPUT, SEARCH_BUTTON, SEARCH_INPUT } from "../constants.js";
-export async function createStartingPage(){
+export function createStartingPage(){
     SECTION.innerHTML = ''
     SEARCH_BUTTON.innerHTML = ''
 

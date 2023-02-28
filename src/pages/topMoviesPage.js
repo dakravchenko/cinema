@@ -1,21 +1,19 @@
 import { MAIN_CONTENT_DIV, SECTION } from "../constants.js";
 import { getTopMovies } from "../data.js";
-import { renderError } from "../views/errorView.js";
 import { renderSearchResults } from "../views/resultView.js";
 
 export async function createTopMoviesPage(page){
     SECTION.innerHTML = ''
     MAIN_CONTENT_DIV.innerHTML = ''
 
-    try {  
-        const data = await getTopMovies(page);
-        renderSearchResults(data)
+    const data = await getTopMovies(page);
+    renderSearchResults(data)
 
-        const input = document.querySelector('input')
-        input.value = ''
+    const input = document.querySelector('input')
+    input.value = ''
 
 
-        const nextButton = document.createElement('button')
+    const nextButton = document.createElement('button')
     nextButton.className = 'next-page-button pagination-button';
     nextButton.setAttribute('type', 'button')
     const nextButtonText = document.createElement('h2')
@@ -58,9 +56,4 @@ export async function createTopMoviesPage(page){
         currentPage--;
         createTopMoviesPage(currentPage)
     })
-    } catch (error){
-        renderError(error)
-    }
-
-    
 }

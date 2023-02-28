@@ -26,7 +26,7 @@ export async function getFilmsWithFilters(year, genre, vote, keyword){
         const jsonData = await res.json();
         return jsonData
     } catch (error) {
-        renderError
+        renderError(error)
     }
     
 }
@@ -45,7 +45,7 @@ export async function getGenres(){
 }
 
 export async function getTopMovies(page){
-    try {
+    try { 
         const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=464e0732a4ff7c3b5e09de7baa51e9f2&language=en-US&page=${page}`)
     if(!res.ok){
         throw new Error('HTTP error')
