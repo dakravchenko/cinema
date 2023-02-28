@@ -8,7 +8,11 @@ export async function getFilmsByName(query){
         renderError(error)
     }
     const jsonData = await res.json();
-    renderSearchResults(jsonData)
+    try {
+        renderSearchResults(jsonData)  
+    } catch (error) {
+        renderError(error)
+    }
 
 }
 
