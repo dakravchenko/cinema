@@ -36,7 +36,7 @@ root
 ## Must_haves 
 - fetched data
 - search by name + filters (year, genre, type)
-- diplay pictures 
+- display pictures 
 - responsive design 
 - pagination
 
