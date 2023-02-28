@@ -2,6 +2,7 @@ import { getFilmsByName } from './data.js';
 import { createStartingPage } from './pages/initPage.js';
 import { SEARCH_INPUT, SEARCH_BUTTON, DISCOVER_PAGE, HOME_PAGE} from './constants.js';
 import { createDiscoverPage } from './pages/discoverPage.js';
+import { createTopMoviesPage } from './pages/topMoviesPage.js';
 
 window.addEventListener('load', () => {
     createStartingPage();
@@ -32,6 +33,12 @@ window.addEventListener('load', () => {
 
     const logo = document.querySelector('.logo')
     logo.addEventListener('click', createStartingPage)
+
+    const topMovies = document.querySelector('.top-movies')
+
+    topMovies.addEventListener('click', () => {
+      createTopMoviesPage(1)
+    })
 
 
 

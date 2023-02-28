@@ -33,3 +33,13 @@ export async function getGenres(){
     const jsonData = await res.json();
     return jsonData
 }
+
+export async function getTopMovies(page){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=464e0732a4ff7c3b5e09de7baa51e9f2&language=en-US&page=${page}`)
+    if(!res.ok){
+        const error = `${res.status} : ${res.statusText}`
+        renderError(error)
+    }
+    const jsonData = await res.json();
+    return jsonData
+}

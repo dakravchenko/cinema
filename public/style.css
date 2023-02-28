@@ -194,6 +194,13 @@ select, option {
     font-family: 'Inter';
 
 }
+.pagination-button-container {
+    display: flex;
+    justify-content: center;
+}
+.pagination-button {
+    width: 100px;
+}
 
 @media(max-width:1400px){
     .main-content{
