@@ -14,12 +14,16 @@ export async function createTopMoviesPage(page){
         const nextButton = document.createElement('button')
     nextButton.className = 'next-page-button pagination-button';
     nextButton.setAttribute('type', 'button')
-    nextButton.textContent = 'next'
+    const nextButtonText = document.createElement('h2')
+    nextButtonText.textContent = 'next'
+    nextButton.appendChild(nextButtonText)
 
     const previousButton = document.createElement('button')
     previousButton.className = 'previous-page-button pagination-button';
     previousButton.setAttribute('type', 'button')
-    previousButton.textContent = 'previous'
+    const previousButtonText = document.createElement('h2')
+    previousButtonText.textContent = 'previous'
+    previousButton.appendChild(previousButtonText)
 
     const paginationButtonsContainer = document.createElement('div')
     paginationButtonsContainer.className = 'pagination-button-container'
